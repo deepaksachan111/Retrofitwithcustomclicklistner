@@ -8,6 +8,6 @@ import info.androidhive.retrofit.model.Movie;
 
 public interface OnItemClickListener {
 
-    void onItemClick(Movie item);
+    void onItemClick(Movie item, int pos);
 
 }

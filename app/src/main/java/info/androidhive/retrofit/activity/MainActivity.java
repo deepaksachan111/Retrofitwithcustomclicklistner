@@ -57,8 +57,8 @@ public class MainActivity extends AppCompatActivity {
                 List<Movie> movies = response.body().getResults();
                 recyclerView.setAdapter(new MoviesAdapter(movies, R.layout.list_item_movie, getApplicationContext(), new OnItemClickListener() {
                     @Override
-                    public void onItemClick(Movie item) {
-                        Toast.makeText(getApplicationContext(),item.getTitle(),Toast.LENGTH_LONG).show();
+                    public void onItemClick(Movie item, int p) {
+                        Toast.makeText(getApplicationContext(),item.getTitle()+","+p,Toast.LENGTH_LONG).show();
                     }
                 }));
                 Log.e(TAG, movies.toString());

@@ -42,7 +42,7 @@ public class MoviesAdapter extends RecyclerView.Adapter<MoviesAdapter.MovieViewH
             rating = (TextView) v.findViewById(R.id.rating);
         }
 
-        public void bind(final Movie movies, final OnItemClickListener listener) {
+        public void bind(final Movie movies, final OnItemClickListener listener, final int pos) {
             movieTitle.setText(movies.getTitle());
             data.setText(movies.getReleaseDate());
             movieDescription.setText(movies.getOverview());
@@ -52,7 +52,7 @@ public class MoviesAdapter extends RecyclerView.Adapter<MoviesAdapter.MovieViewH
 
                 @Override public void onClick(View v) {
 
-                    listener.onItemClick(movies);
+                    listener.onItemClick(movies,pos);
 
                 }
 
@@ -82,7 +82,7 @@ public class MoviesAdapter extends RecyclerView.Adapter<MoviesAdapter.MovieViewH
 
     @Override
     public void onBindViewHolder(MovieViewHolder holder, final int position) {
-    holder.bind(movies.get(position),listener);
+    holder.bind(movies.get(position),listener,position);
 
         if(position > lastPosition) {
 
